@@ -182,13 +182,16 @@ dagger { font-family: 'Times New Roman'; }
   gap: 5px;
   width: 450px;
   position: relative; /* anchor for .nine */
+  margin-left: 50px;
 }
 
 .right {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  max-width: 200px;
+  max-width: 100px;
+  margin-left: 10px;
+
 }
 
 
@@ -216,6 +219,11 @@ nav {
 
 nav a {
   color: #000;
+  cursor:help;
+}
+
+.r-tracks a, .steam-lastplayed a, .button-grid a {
+  cursor:help;
 }
 
 
@@ -317,6 +325,7 @@ nav a {
   display: block;
   overflow: hidden;
   position: relative;
+  cursor:help;
 }
 
 .album-cover img {
@@ -330,6 +339,7 @@ nav a {
 .album-cover:hover img {
   filter: grayscale(0) brightness(100%) contrast(100%);
 }
+
 
 
 /* =========================================================
@@ -348,7 +358,7 @@ nav a {
   display: block;
   overflow: hidden;
   position: relative;
-  cursor: pointer;
+  cursor: help;
 }
 
 .gamerecc-grid img {
@@ -360,6 +370,8 @@ nav a {
 #gamerecc-meta {
   color: #676768;
 }
+
+
 
 
 /* =========================================================
