@@ -200,9 +200,6 @@ blink {
 
 /* =========================================================
    UTILITY CLASSES
-   Small, combinable helpers — reach for these before writing
-   new CSS. Stack them on any element, including .c-box /
-   .c-innerbox.
    ========================================================= */
 .u-flex        { display: flex; }
 .u-flex-col    { display: flex; flex-direction: column; }
@@ -226,16 +223,6 @@ blink {
 
 /* =========================================================
    GENERIC BOX SYSTEM
-   .c-box / .c-innerbox are the two hooks for basically any
-   content container on the site. Size, background, border,
-   padding, etc. are all driven by CSS custom properties set
-   inline on the element itself — e.g.:
-
-     <div class="c-box" style="--w:200px; --h:150px; --bgi:url(images/foo.gif);"> ... </div>
-
-   This means adding a new box almost never requires touching
-   this stylesheet — just reuse the class and set the vars you need.
-   Unset vars fall back to sane defaults below.
    ========================================================= */
 .c-box,
 .c-innerbox {
@@ -844,6 +831,7 @@ dagger {
   display: block;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .gamerecc-grid img {
@@ -852,6 +840,9 @@ dagger {
   width: 100%;
 }
 
+#gamerecc-meta {
+  color: #676768;
+}
 
 .button-grid {
   height: 40px;

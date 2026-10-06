@@ -1,16 +1,20 @@
+
 const gameList = [
   {
     name: "Outer Wilds",
-    icon: "https://upload.wikimedia.org/wikipedia/en/f/f6/Outer_Wilds_Steam_artwork.jpg",
+    icon: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/753640/776c33c3fe66b54a132832449bd8b2e17df93593.ico",
     appid: 753640,
-    genre: "Exploration, Puzzle",
+    genre: "Exploration, Puzzle, Space",
+    comment: "Stellar game and amazing soundtrack. This will change your life",
     year: 2019
   },
   {
-    name: "Gunmetal Gothic",
-    appid: 2248150,
-    genre: "Action RPG, Third Person Shooter",
-    year: 2027
+    name: "Lunacid",
+    icon: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1745510/009333bdf77ddd80e4d998686de20d56bf9a8fd7.jpg",
+    appid: 1745510,
+    genre: "Dark Fantasy, Dungeon Crawler, First-person RPG",
+    comment:"I'm a sucker for anything remotely close to Morrowind. Also Demons Souls references",
+    year: 2023
   }
   // ,
   // {
@@ -22,45 +26,47 @@ const gameList = [
  // }
 ];
 
-let shuffledQueue = [];
+function buildUrl(pick) {
+  return pick.url || `https://store.steampowered.com/app/${pick.appid}`;
+}
 
-function shuffle(array) {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+function renderGameReccGrid() {
+  const grid = document.getElementById('gamerecc-grid');
+  const nameEl = document.getElementById('gamerecc-name');
+  const metaEl = document.getElementById('gamerecc-meta');
+  const commentEl = document.getElementById('gamerecc-comment');
+  const linkEl = document.getElementById('gamerecc-link');
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
+  gameList.forEach((pick) => {
+    const img = document.createElement('img');
+    img.src = pick.icon;
+    img.className = 'gamerecc-icon';
+    img.alt = pick.name;
+
+    img.addEventListener('click', () => {
+      nameEl.textContent = pick.name;
+      metaEl.textContent = `${pick.genre} · ${pick.year}`;
+      commentEl.textContent = pick.comment || '';
+      linkEl.href = buildUrl(pick);
+
+      grid.querySelectorAll('.gamerecc-icon').forEach(el => el.classList.remove('selected'));
+      img.classList.add('selected');
+    });
+
+    grid.appendChild(img);
+  });
+
+  if (gameList.length) {
+    const first = gameList[0];
+    nameEl.textContent = first.name;
+    metaEl.textContent = `${first.genre} · ${first.year}`;
+    commentEl.textContent = first.comment || '';
+    linkEl.href = buildUrl(first);
+    grid.firstChild?.classList.add('selected');
   }
-  return arr;
 }
 
-function getNextPick() {
-  if (shuffledQueue.length === 0) {
-    shuffledQueue = shuffle(gameList);
-  }
-  return shuffledQueue.pop();
-}
-
-function renderRecommendation() {
-  const container = document.getElementById("game-recommendation");
-  if (!container || gameList.length === 0) return;
-
-  const pick = getNextPick();
-
-  const icon = pick.icon || `https://cdn.cloudflare.steamstatic.com/steam/apps/${pick.appid}/header.jpg`;
-  const url = pick.url || `https://store.steampowered.com/app/${pick.appid}`;
-
-  container.innerHTML = `
-
-    <a href="${url}" target="_blank" rel="noopener">
-      <img src="${icon}" alt="${pick.name}" style="height:50px; display:block;">
-    </a>
-    
-      <strong>${pick.name}</strong>
-      ${pick.genre} · ${pick.year}
-
-    
-  `;
-}
-
-document.getElementById("reroll-btn")?.addEventListener("click", renderRecommendation);
-renderRecommendation(); // show one immediately on page load
+renderGameReccGrid();
