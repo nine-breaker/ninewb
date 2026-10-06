@@ -1,74 +1,3 @@
-/* crt effect */
-      .crt::before {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 99999;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-}
-
-@keyframes flicker {
-  0% {
-  opacity: 0.00001;
-  }
-  5% {
-  opacity: 0.00009;
-  }
-  10% {
-  opacity: 0.00004;
-  }
-  15% {
-  opacity: 0.00006;
-  }
-  20% {
-  opacity: 0.00008;
-  }
-  25% {
-  opacity: 0.0006;
-  }
-  30% {
-  opacity: 0.10008;
-  }
-  35% {
-  opacity: 0.10004;
-  }
-}
-
-.crt::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(18, 16, 16, 0.1);
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-  animation: flicker 0.15s infinite;
-}
-
-.darkoverlay {
-    display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-    background-image: url("images/game_images/gamebg.jpg");
-    opacity: 0.4;
-    filter: brightness(70%);
-    z-index: -1;
-}
-    
-
 /* =========================================================
    THEME VARIABLES
    ========================================================= */
@@ -81,31 +10,7 @@
 
 
 /* =========================================================
-   BASE / RESET
-   ========================================================= */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-attachment: fixed;
-  background-color: rgb(0, 0, 0);
-  background-position: center;
-  color: #aaa;
-  font-family: 'hi', arial;
-  font-size: 11px;
-  margin: 0;
-  text-align: left;
-  margin: 0 0 0 30px;
-}
-
-::selection {
-  background-color: #00000075;
-  color: #ffffff;
-}
-
-/* =========================================================
-   TYPOGRAPHY
+   FONTS
    ========================================================= */
 @font-face {
   font-family: 'hi';
@@ -115,39 +20,49 @@ body {
 }
 
 
+/* =========================================================
+   BASE / RESET
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-attachment: fixed;
+  background-color: #000;
+  background-image: url(images/supp.png);
+  background-position: top left;
+  background-repeat: repeat-y;   /* tile horizontally */
+  background-size: auto 194px;   /* locked height, natural width */
+  color: #aaa;
+  font-family: 'hi', arial;
+  font-size: 11px;
+  margin: 0 0 0 30px;
+  text-align: left;
+}
+
+::selection {
+  background-color: #00000075;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 a {
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-family: 'hi', arial;
 }
 
-p {
-  margin: 0;
-}
-
-hr {
-  color: white;
-  margin: 0;
-}
+p { margin: 0; }
+hr { color: white; margin: 0; }
 
 ul {
   font-size: 22px;
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-header {
-  font-variant: all-petite-caps;
-  font-family:Px437;
-  font-weight: bold;
-  padding: 3px 5px 0;
-}
-
-cheader {
-  border-bottom:1px solid #aaa;
-  padding: 3px 5px 0;
-  font-size:12px;
-  color: white;
 }
 
 h1 {
@@ -172,30 +87,8 @@ h3 {
   text-shadow: 1px 1px 1px #000;
 }
 
-h5 {
-  margin: 0;
-}
-
-marquee {
-  color: #aaa;
-  font-size: 11px;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-@keyframes blinker {
-  50% {
-    color: #bb6ce0;
-    opacity: 0;
-  }
-}
-
-blink {
-  animation: blinker 5.5s cubic-bezier(.3, 3.73, .32, -0.28) infinite;
-  color: #acccc1;
-  text-shadow: 0 0 2px #798e94,0 0 2px #798e94;
-  font-variant: all-small-caps;
-  font-size: 13px;
-}
+red   { color: #6f0000; }
+dagger { font-family: 'Times New Roman'; }
 
 
 /* =========================================================
@@ -246,47 +139,24 @@ blink {
 }
 
 .c-innerbox {
-    background-color: var(--bgc, transparent);
-    background-image: none; 
+  background-image: none;
 }
 
 .c-box:has(header) {
   padding-top: 0 !important;
 }
 
-.metal {
-  background-image:
-    var(--m-top, none),
-    var(--m-bottom, none),
-    var(--m-left, none),
-    var(--m-right, none);
-  background-position: top left, bottom left, top left, top right;
-  background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
-  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-}
-
-/* stupid piece of shit code   border-bottom: var(--bdb, none);*/
 
 /* =========================================================
    PAGE FRAME
    ========================================================= */
 .main {
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: transparent;
   margin-top: 0;
   margin-right: auto;
   position: relative;
-  width: 600px;
-  height:1000px;
-}
-
-.welcome {
-  margin-bottom: 5px;
-}
-
-.bottompart {
-  font-size: 12px;
-  padding: 10px;
-  text-align: right;
+  width: 700px;
+  height: 900px;
 }
 
 .columns {
@@ -303,6 +173,7 @@ blink {
   flex-direction: column;
   gap: 5px;
   max-width: 100px;
+  margin-left: 20px;
 }
 
 .mid {
@@ -310,6 +181,7 @@ blink {
   flex-direction: column;
   gap: 5px;
   width: 450px;
+  position: relative; /* anchor for .nine */
 }
 
 .right {
@@ -321,217 +193,66 @@ blink {
 
 
 /* =========================================================
-   NAV
+   SIDEBAR (fixed to viewport)
    ========================================================= */
-#navbox {
-  display: block;
-  flex: 1;
-  height: auto;
-  max-width: 140px;
-  overflow: visible;
-  padding: 0;
-  scrollbar-width: none;
-  text-align: justify;
-  text-align-last: justify;
-}
-#navbox a {
-  border-left: solid 3px grey;
-  color: #e0dede;
-  font-family: Palatino;
-  font-style: italic;
-  font-weight: 600;
-  padding-left: 5px;
-  text-decoration: none;
-  text-shadow: black 1px 1px;
-  -webkit-font-smoothing: none;
-}
-body #navbox a:hover {
-  border: 1px dotted black;
-  color: #7e7597 !important;
-  padding: 0;
-}
-body #navbox a:active {
-  color: #6ce0be !important;
-  font-weight: bold;
-  text-shadow: black 1px 1px;
-}
-#navbox ul {
-  letter-spacing: 2px;
-  list-style-type: none;
-  margin: 0 0 0 2px;
-  padding: 0 !important;
-}
-#navbox li {
-  font-size: 11px;
-}
-.nav-title {
-  letter-spacing: 1px;
-  margin-top: -5px;
-}
-
-.buttholder {
-  display: var(--disp, flex);
-  flex-direction: var(--dir, row);
-  gap: var(--gap, 8px);
-  padding-top: var(--pt, );
-  align-items: var(--align, stretch);
-  flex-wrap: var(--wrap, nowrap);
-}
-
-.butt-nav-wh { height: 100px; width: 45px; }
-.butt-nav-wl { height: 49px; width: 100px; }
-.butt-nav-s  { height: 49px; width: 49px; }
-
-.butt-nav-wh,
-.butt-nav-wl,
-.butt-nav-s {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.butt-nav-wh img,
-.butt-nav-wl img,
-.butt-nav-s img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.butt-nav-wl::after,
-.butt-nav-s::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: 0;
+.sbl {
+  position: fixed;
   left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-size: 8px;
-  text-align: right;
-  padding: 2px 4px;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  pointer-events: none;
-  line-height: 1.2;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-.butt-nav-wl:hover::after,
-.butt-nav-s:hover::after {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.butt-nav-wh::after {
-  content: attr(data-label);
-  position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
-  width: 40%;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-size: 8px;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 2px;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  pointer-events: none;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-.butt-nav-wh:hover::after {
-  opacity: 1;
-  transform: translateX(0);
+  width: 30px;
+  border-left: #000 dotted 2px;
+  margin-left: 10px;
+  padding-left: 8px;
+  z-index: 10;
 }
 
-.butt-nav-wh a,
-.butt-nav-wl a,
-.butt-nav-s a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  line-height: 0;  /* Removes extra space */
-  text-decoration: none;
+nav {
+  display: grid;
+  gap: 0px;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 12px 0 0 2px;
 }
 
-.butt-nav-wh a img,
-.butt-nav-wl a img,
-.butt-nav-s a img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+nav a {
+  color: #000;
 }
 
 
 /* =========================================================
-   LINKS LIST / TODO LIST
+   TOP BANNER
    ========================================================= */
-.links {
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-.links a {
-  background-image: linear-gradient(0deg, #000, #4d0b18);
-  display: block;
-  padding: 0 0 2px 5px;
-  text-decoration: none;
-}
-.links a:hover {
-  color: #7e7597;
-  letter-spacing: 1px;
-}
-
-.todo {
-  font-size: 11px;
-}
-.todo li {
-  background-image: url(images/static.gif);
-  list-style: inside;
-  padding: 0 5px;
+.tb {
+  width: calc(100% + 30px);
+  margin-left: -30px;
+  height: 18px;
+  background-position: bottom left, center;
+  background-size: 100% 1px, cover;
+  background-repeat: repeat-x, no-repeat;
 }
 
 
 /* =========================================================
-   MID-COLUMN SPLIT 
+   MID-COLUMN SPLIT
    ========================================================= */
-
-.midright { flex: 0 0 190px; }  /* fixed */
-.midleft { flex: 1; }          
 .midleft {
-
   display: flex;
   flex-direction: column;
   gap: 5px;
   min-width: 0;
-  
+  flex: 1;
 }
+
 .midleft .c-innerbox {
   background-position: center;
   background-size: cover;
-  border-bottom:1px solid black;
+  border-bottom: 1px solid black;
 }
+
 .midleft .c-innerbox p {
   background: #00000082;
   font-size: 11px;
   padding: 10px;
-}
-
-.scrollz {
-  height: 150px;
-  overflow-y: auto;
 }
 
 .midright {
@@ -539,150 +260,11 @@ body #navbox a:active {
   flex-direction: column;
   gap: 5px;
   min-width: 0;
+  flex: 0 0 190px;
 }
-
 
 .midright hr {
   color: var(--border-color);
-}
-
-
-.toggle-input {
-  display: none;
-}
-.toggle-label {
-  cursor: pointer;
-}
-.toggle-body {
-  display: none;
-}
-.toggle-input:checked ~ .toggle-body {
-  display: block;
-}
-
-/* =========================================================
-   LAST.FM — NOW PLAYING / WEEKLY TOP ALBUMS
-   ========================================================= */
-.lastfm-nowplaying {
-  align-items: center;
-  column-gap: 8px;
-  display: block;
-  grid-template-columns: 56px 1fr;  
-  grid-template-rows: auto auto auto;    
-
-}
-
-.lastfm-nowplaying .np-art-wrap {
-  grid-row: 1 / 4;
-  height: 30px;
-  position: relative;
-  width: 30px;
-}
-
-/* Album art */
-.lastfm-nowplaying .np-art-wrap img#lastfm-now-art {
-  border: 1px solid #0000006c;
-  height: 30px;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30px;
-  z-index: 2;
-}
-
-/* CD */
-.lastfm-nowplaying .np-art-wrap .cd {
-  animation: cd-spin 4s linear infinite;
-  height: 31px;
-  position: absolute;
-  top:50%;
-  left: 100%;
-  transform: translate(-50%, -50%);
-  width: 31px;
-  z-index: 1;
-  border: none;
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-@keyframes cd-spin {
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-.lastfm-nowplaying .np-title {
-  font-size: 11px;
-  grid-column: 2;    
-  grid-row: 1;        
-}
-
-.lastfm-nowplaying .np-artist {
-  font-size: 11px;
-  opacity: 0.6;
-  grid-column: 2;     
-  grid-row: 2;        
-}
-
-.lastfm-nowplaying .np-status {
-  font-size: 10px;
-  opacity: 0.4;
-  text-align: right;
-  grid-column: 2;  
-  grid-row: 3;      
-  margin-top: -13px;
-}
-
-.albums-grid {
-  display: grid;
-  gap: 0px;
-  grid-template-columns: repeat(8, 30px);
-}
-.album-cover {
-  height: 30px;
-  width: auto;
-  aspect-ratio: 1 / 1;
-  display: block;
-  overflow: hidden;
-  position: relative;
-}
-.album-cover img {
-  filter: grayscale(70%) brightness(100%) contrast(105%);
-  height: 100%;
-  object-fit: cover;
-  transition: 0.2s ease;
-  width: 100%;
-}
-.album-cover:hover img {
-  filter: grayscale(0) brightness(100%) contrast(100%);
-}
-
-
-
-/* =========================================================
-   STATUSCAFE / FF7-STYLE STATUS BOX
-  (#statuscafe, #statuscafe-username, #statuscafe-content)
-   ========================================================= */
-#ff7-status {
-  background: linear-gradient(180deg, #0000b0, #000080, #000050, #000020);
-  border: 0px solid #a0a0a0;
-  border-radius: 2px;
-  box-shadow: inset 0 0 0 1px #ffffff, inset 0 0 0 2px #404040;
-}
-#statuscafe-username {
-  font-size: 11px;
-  font-weight: 200;
-  padding-bottom: 1px;
-  display: grid; grid-template-rows: repeat(2, 1fr);
-
-}
-#statuscafe-content {
-  font-size: 11px;
-  font-weight: 200;
-}
-#rss {
-  display: flex;
 }
 
 
@@ -693,6 +275,7 @@ body #navbox a:active {
   from { background-position: 0 0; }
   to   { background-position: -1000px 0; }
 }
+
 .rightbanner {
   animation: scrollingBg 43s infinite linear;
   background-image: var(--bgi, url('images/puple.jpg'));
@@ -702,6 +285,7 @@ body #navbox a:active {
   position: relative;
   width: var(--w, 200px);
 }
+
 .rightbanner-fg {
   bottom: 0;
   position: absolute;
@@ -709,6 +293,7 @@ body #navbox a:active {
   width: 200px;
   z-index: 1;
 }
+
 .rightbanner-text {
   font-size: 11px;
   padding: 5px;
@@ -716,108 +301,40 @@ body #navbox a:active {
 }
 
 
-
-
-
-.feed-entry-compact {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 8px;
-  padding:1px;
-  font-size: 11px;
-}
-
-.feed-entry-compact .date {
-  opacity: 0.5;
-  padding: 2px 5px;
-}
-
-.feed-entry-compact .content {
-  margin: 0;
-  line-height: 13px;
-}
-
-.log-entry {
-  display: flex;
-  grid-template-columns: 70px 1fr;
-  gap: 8px;
-  padding:1px;
-  font-size: 11px;
-}
-
-
-.fallbg{
-  background-image:url('images/bg.webp');
-  transform:translate3d(0,0,0);
-  animation:16s linear infinite bgfall;
-  padding:0;
-  margin:0;
-}
-@keyframes bgfall{
-  0% {background-position:0 0;}
-  100% {background-position:0 400px;}
-}
-
-red {
-color: #6f0000;
-}
-
-#reroll-btn {
-  background-color: transparent;
-  color: #6f0000;
-  border: none;
-  margin-top:7px;
-  padding: 2px 0 0 150px;
-  cursor: crosshair;
-  font-family:hi;
-  margin-left: auto;
-  font-size:11px;
-}
-
-.tb {
-  width: calc(100% + 30px);
-  margin-left: -30px;
-  height: 18px;
-  background-image:
-    url(images/line-L.jpg),
-    linear-gradient(to bottom, #020202, #18181880);
-  background-position: bottom left, center;
-  background-size: 100% 1px, cover;
-  background-repeat: repeat-x, no-repeat;
-}
-
-.sbl {
-  position: absolute;
-  left: -30px;
-  top: 0;
-  width: 30px;
-  height: 100%;
-  background: #000; 
-  border: 1px inset #131212;
-}
-
-
-
-nav {
+/* =========================================================
+   ALBUM GRID (weekly top albums)
+   ========================================================= */
+.albums-grid {
   display: grid;
   gap: 0px;
-  grid-template-columns: repeat(1, 1fr);
-  padding:12px 0 0 7px;
+  grid-template-columns: repeat(8, 30px);
 }
 
-.pfp {
-  max-width:47px;
-  max-height:47px;
-  border: 2px inset #383838;
+.album-cover {
+  height: 30px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  display: block;
+  overflow: hidden;
+  position: relative;
 }
 
-dagger {
-  font-family:'Times New Roman';
+.album-cover img {
+  filter: grayscale(70%) brightness(100%) contrast(105%);
+  height: 100%;
+  object-fit: cover;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.album-cover:hover img {
+  filter: grayscale(0) brightness(100%) contrast(100%);
 }
 
 
-
-
+/* =========================================================
+   GAME RECOMMENDATIONS GRID
+   ========================================================= */
 .gamerecc-grid {
   display: grid;
   gap: 0px;
@@ -844,9 +361,13 @@ dagger {
   color: #676768;
 }
 
+
+/* =========================================================
+   BUTTON GRID
+   ========================================================= */
 .button-grid {
   height: 40px;
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(2, 20px);
   justify-content: flex-end;
   margin-left: auto;
@@ -856,23 +377,26 @@ dagger {
   height: 20px;
 }
 
-#mh-info, #gh-info {
+#mh-info,
+#gh-info {
   width: 50px;
 }
 
-.mid {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 450px;
-  position: relative; /* anchor point for */
+
+/* =========================================================
+   MISC
+   ========================================================= */
+.pfp {
+  max-width: 47px;
+  max-height: 47px;
+  border: 2px inset #383838;
 }
 
 .nine {
   position: absolute;
   top: 0;
   right: 0;
-  width: 320px; /* adjust to taste */
+  width: 320px;
   z-index: 1;
-  pointer-events: none; /* lets clicks pass through to whatever's underneath */
+  pointer-events: none;
 }
