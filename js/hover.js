@@ -5,14 +5,28 @@ function attachHoverInfo(selector, infoBoxId, defaultText) {
 
   items.forEach(el => {
     el.addEventListener('mouseenter', () => {
-      // reads any data-* attribute present on the element
-      const text = el.dataset.hoverText || el.dataset.title || 'Unknown';
-      infoBox.textContent = text;
+      infoBox.textContent = el.dataset.hoverText || el.dataset.title || 'Unknown';
     });
-
     el.addEventListener('mouseleave', () => {
       infoBox.textContent = defaultText;
     });
+  });
+}
+
+function attachHoverInfoDelegated(selector, infoBoxId, defaultText) {
+  const infoBox = document.getElementById(infoBoxId);
+  if (!infoBox) return;
+
+  document.addEventListener('mouseover', e => {
+    const el = e.target.closest(selector);
+    if (!el) return;
+    infoBox.textContent = el.dataset.hoverText || el.dataset.title || 'Unknown';
+  });
+
+  document.addEventListener('mouseout', e => {
+    const el = e.target.closest(selector);
+    if (!el || el.contains(e.relatedTarget)) return;
+    infoBox.textContent = defaultText;
   });
 }
 

@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Neocities",
+    "url": "https://neocities.org/",
+    "category": "web",
+    "description": "Static hosting for handmade sites."
+  },
+  {
+    "title": "Nekoweb",
+    "url": "https://nekoweb.org/",
+    "category": "web",
+    "description": "Like Neocities but for cats."
+  },
+  {
+    "title": "Final Fantasy XIV",
+    "url": "https://na.finalfantasyxiv.com/",
+    "category": "games",
+    "description": "Have you heard of the critically acclaimed MMORPG Final Fantasy XIV? With an expanded free trial which you can play through the entirety of A Realm Reborn, Heavensward, Stormblood, and the award-winning Shadowbringers expansion up to level 80 for free with no restrictions on playtime?"
+  }
+]

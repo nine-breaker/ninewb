@@ -1,0 +1,139 @@
+bar-header {
+    background-color: #8a8a8acb;
+    font-family:'hi';
+}
+
+bar-header p {
+    font-size:11px;
+    color:#000;
+    padding:1px 2px;
+    font-weight:lighter;
+}
+
+search-bar {
+    background-color:#4a4a4a69;
+    font-size:11px;
+    color:#bbb9b9;
+    padding:1px 2px;
+    font-weight:lighter;
+}
+
+gametitle {
+    font-size:12px;
+    color:#FFF;
+}
+
+.meta {
+    font-size:11px;
+    color:#646363;
+    margin-top:-6px;
+}
+
+/* ===== directory bar ===== */
+.directory-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 2px;
+}
+
+.directory-bar p {
+  margin: 0;
+}
+
+#directory-count {
+  font-size: 11px;
+  color: #000;
+}
+
+/* ===== category button row ===== */
+#category-buttons {
+  display: grid;
+  grid-template-columns: repeat(8, 20px);   
+  justify-content: flex-start;
+  margin-left: 0;
+  height: auto;
+  gap: 0;
+  
+}
+
+.category-btn {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  background: #222;
+  cursor: help;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.category-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.category-btn.active {
+  outline: 1px dotted #fff;
+  background: #333;
+}
+
+/* ===== category panel ===== */
+#category-panel {
+  margin-top: 4px;
+}
+
+#category-label {
+  display: block;
+}
+
+/* ===== scrollable link list ===== */
+.link-list-scroll {
+  max-height: 300px;          /* adjust to taste */
+  overflow-y: auto;
+  border-bottom: 1px dotted var(--border-color);
+  border-top: none;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #111;
+}
+
+.link-list-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.link-list-scroll::-webkit-scrollbar-track {
+  background: #111;
+}
+.link-list-scroll::-webkit-scrollbar-thumb {
+  background: #444;
+  border: 1px solid #000;
+}
+
+/* ===== individual link entries ===== */
+.link-entry {
+  padding: 2px 4px;
+  border-bottom: 1px dotted #222;
+  font-size: 11px;
+}
+
+.link-entry:last-child {
+  border-bottom: none;
+}
+
+.link-entry a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'hi', arial;
+}
+
+.link-entry a:hover {
+  color: #7e7597;
+}
+
+.link-entry .link-desc {
+  color: #646363;
+  margin-top: -2px;
+}
+
