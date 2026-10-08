@@ -6,9 +6,9 @@ const CATEGORY_LABELS = {
 
 // placeholder icon — swap individual entries to real icons later
 const CATEGORY_ICONS = {
-  web:         "../images/cat/yummy.jpg",
-  games:       "../images/cat/yummy.jpg",
-  tools:       "../images/cat/yummy.jpg"
+  web:         "../images/cat/rev.png",
+  games:       "../images/cat/rev.png",
+  tools:       "../images/cat/rev.png"
 };
 
 const PLACEHOLDER_ICON = "../images/cat/yummy.jpg";
