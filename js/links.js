@@ -1,12 +1,14 @@
 const CATEGORY_LABELS = {
   web: "Web Resources",
   games: "Games",
+  tools: "Tools"
 };
 
 // placeholder icon — swap individual entries to real icons later
 const CATEGORY_ICONS = {
   web:         "../images/cat/yummy.jpg",
   games:       "../images/cat/yummy.jpg",
+  tools:       "../images/cat/yummy.jpg"
 };
 
 const PLACEHOLDER_ICON = "../images/cat/yummy.jpg";

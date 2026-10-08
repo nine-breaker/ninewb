@@ -16,5 +16,11 @@
     "url": "https://na.finalfantasyxiv.com/",
     "category": "games",
     "description": "Have you heard of the critically acclaimed MMORPG Final Fantasy XIV? With an expanded free trial which you can play through the entirety of A Realm Reborn, Heavensward, Stormblood, and the award-winning Shadowbringers expansion up to level 80 for free with no restrictions on playtime?"
+  },
+  {
+    "title":"Soulseek",
+    "url":"https://www.slsknet.org/",
+    "category":"tools",
+    "description":"Become a traveling merchant on the Silk Road of the Interwebs."
   }
 ]
