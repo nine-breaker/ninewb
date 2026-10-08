@@ -66,9 +66,6 @@ function toggleCategory(cat) {
     b.classList.toggle("active", b.dataset.category === cat);
   });
 
-  // label bar
-  document.getElementById("category-label").textContent =
-    CATEGORY_LABELS[cat] ?? cat;
 
   // filter + render list
   const filtered = items.filter(i => i.category === cat);

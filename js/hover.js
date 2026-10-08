@@ -13,9 +13,16 @@ function attachHoverInfo(selector, infoBoxId, defaultText) {
   });
 }
 
+// library
 function attachHoverInfoDelegated(selector, infoBoxId, defaultText) {
   const infoBox = document.getElementById(infoBoxId);
   if (!infoBox) return;
+
+  function restore() {
+    const active = document.querySelector(`${selector}.active`);
+    infoBox.textContent =
+      active?.dataset.hoverText || active?.dataset.title || defaultText || "";
+  }
 
   document.addEventListener('mouseover', e => {
     const el = e.target.closest(selector);
@@ -26,7 +33,7 @@ function attachHoverInfoDelegated(selector, infoBoxId, defaultText) {
   document.addEventListener('mouseout', e => {
     const el = e.target.closest(selector);
     if (!el || el.contains(e.relatedTarget)) return;
-    infoBox.textContent = defaultText;
+    restore();
   });
 }
 

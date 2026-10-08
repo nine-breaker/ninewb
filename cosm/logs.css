@@ -1,16 +1,16 @@
 bar-header {
-    background-color: #8a8a8acb;
+    background-color: #8a8a8a27;
     font-family:'hi';
 }
 
 bar-header p {
     font-size:11px;
-    color:#000;
+    color:#ffffff;
     padding:1px 2px;
     font-weight:lighter;
 }
 
-search-bar {
+s-bar {
     background-color:#4a4a4a69;
     font-size:11px;
     color:#bbb9b9;
@@ -43,7 +43,7 @@ gametitle {
 
 #directory-count {
   font-size: 11px;
-  color: #000;
+  color: #ffffff;
 }
 
 /* ===== category button row ===== */
@@ -61,7 +61,6 @@ gametitle {
   width: 20px;
   height: 20px;
   border: 1px solid #000;
-  background: #222;
   cursor: help;
   display: flex;
   align-items: center;
@@ -86,16 +85,13 @@ gametitle {
   margin-top: 4px;
 }
 
-#category-label {
-  display: block;
-}
 
 /* ===== scrollable link list ===== */
 .link-list-scroll {
   max-height: 300px;          /* adjust to taste */
   overflow-y: auto;
   border-bottom: 1px dotted var(--border-color);
-  border-top: none;
+  border-top: 1px dotted #444;
   scrollbar-width: thin;
   scrollbar-color: #444 #111;
 }
