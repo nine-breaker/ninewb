@@ -4,7 +4,7 @@ const CATEGORY_LABELS = {
   tools: "Tools"
 };
 
-// placeholder icon — swap individual entries to real icons later
+// placeholder icon 
 const CATEGORY_ICONS = {
   web:         "../images/cat/rev.png",
   games:       "../images/cat/rev.png",

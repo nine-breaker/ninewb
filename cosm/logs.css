@@ -88,9 +88,9 @@ gametitle {
 
 /* ===== scrollable link list ===== */
 .link-list-scroll {
-  max-height: 300px;          /* adjust to taste */
+  max-height: 300px;       
   overflow-y: auto;
-  border-bottom: 1px dotted var(--border-color);
+  border-bottom: 1px dotted #444;
   border-top: 1px dotted #444;
   scrollbar-width: thin;
   scrollbar-color: #444 #111;

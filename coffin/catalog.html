@@ -6,59 +6,127 @@
     <title>O_O</title>
     <link rel="icon" type="png" href="../images/buttons/basilica.gif">
     <link href="../style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../cosm/logs.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <script>NekoType="black"</script><h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <script>NekoType="black"</script><h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
 
     <div class="tb"></div>
     <div class="main">
 
-    <div class="sbl">
+      <!-- sidebar -->
+      <div class="sbl">
 
-      <a target="blank" class="u-no-underline" href="https://moonphase.guide/">
-          <img width="25px" style="padding-top:10px;"  src="https://moonphase.guide/module/MZXBNcTB6WlRrV3ZIT2p3eWpyTFNtSkc5S3ExYVdDczZnc2MrS2pLNVBIQVdsU2ZVTUNwSWM3aFFyTDI4SUxSMlZsUWFlbnd6eDNNaEdZRVdwdHdZa0E9PQ.png"></a>
+        <a target="blank" class="u-no-underline" href="https://moonphase.guide/">
+          <img width="25px" style="padding-top:10px;" src="https://moonphase.guide/module/MZXBNcTB6WlRrV3ZIT2p3eWpyTFNtSkc5S3ExYVdDczZnc2MrS2pLNVBIQVdsU2ZVTUNwSWM3aFFyTDI4SUxSMlZsUWFlbnd6eDNNaEdZRVdwdHdZa0E9PQ.png"></a>
 
-          
         <nav>
           <a href="../index.html">HOME</a>
-          <a href="#">GLRY</a>
-          <a href="#">CTLG</a>
-          <a href="#">LINK</a>
           <a href="https://tacnaynpire.atabook.org/">GSTB</a>
         </nav>
+      </div>
 
-    </div>
+      <br>
 
-    <div class="columns">
-        <div class="left">
-          <br>
-        </div>
+      <!-- columns -->
+      <div class="columns">
 
         <div class="mid">
-          <br>
 
-          <dagger>†</dagger> <red>CATALOG</red>
-          <div class="typewriter">Indexing various things out of my own enjoyment.</div>
-          <script src="../js/misc.js"></script>
-          <br><br>
+          <!-- top row -->
+          <div class="top-row">
 
-          <img src="../images/AGUARDIAN90_8.GR2.gif" style="height:auto; width:40%;">
-        <div class="button-grid">
-            <a href="library.html"><img src="../images/buttons/cd.webp" data-hover-text="library" class="misc-h"></a>
-            <div id="msch-info"></div>
-            <script src="../js/hover.js"></script>
+            <!-- about -->
+            <div class="about">
+              <img src="../images/icons/nekojiru.jpg" class="pfp">
+              <dagger>†</dagger> <red>CATALOG</red>
+              <br><div class="typewriter">Indexing various things out of my own enjoyment.</div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <red>!?</red>
+              <br>
+
+            </div>
+
+            <img src="../images/neko/anekocircle.gif" class="neko">
+
+            <!-- terminal -->
+            <div class="term">
+
+              <div class="heads">
+                <div class="term-ls">
+                  <div class="prompt">[nine:~]$ ls links/</div>
+                  <meows>
+                    <a href="#">mumble</a>
+                    <a href="#">illust</a>
+                    <a href="#">catalog</a>
+                    <a href="#">cats</a>
+                    <a href="#">out</a>
+                  </meows>
+                </div>
+
+                <!-- icon buttons -->
+                <meow>
+                  <a href="https://www.last.fm/user/chronostat"><img src="../images/neko/aneko.gif" data-hover-text="lastfm" class="music-h" alt="last.fm"></a>
+                  <img src="../images/neko/aneko.gif" data-hover-text="music room" class="music-h" alt="music room">
+                  <a href="https://steamcommunity.com/id/nine-breaker/"><img src="../images/neko/aneko.gif" data-hover-text="my steam" class="game-h" alt="steam"></a>
+                  <img src="../images/neko/aneko.gif" data-hover-text="gamelog" class="game-h" alt="gamelog">
+                </meow>
+              </div>
+
+              <!-- hover labels for the icon buttons -->
+              <div class="term-tips">
+                <div id="mh-info"></div>
+                <div id="gh-info"></div>
+              </div>
+
+              <div class="term-screen" id="term-screen">
+                <div class="term-output" id="term-output" aria-live="polite"></div>
+              </div>
+              <input
+                class="term-input"
+                id="term-input"
+                type="text"
+                placeholder="SPEAK TO ME"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                aria-label="terminal input"
+              >
+
+            </div>
           </div>
-          
-          <br>
-          <div class="c-box u-flex u-gap-sm" style="--h:150px; --bd:none;"></div>
-            
+
+          <!-- illustration -->
+          <div class="nines">
+            <img src="../images/AGUARDIAN90_8.GR2.gif" alt=""> 
+          </div>
+
         </div>
+
+        <!-- right column -->
+        <div class="right">
+          <br><br><br>
+
+        </div>
+
+      </div>
     </div>
 
-    </div>
-
+    
+    <script>
+      window.TERM_COMMANDS = {
+        lib: {
+          desc: 'link collection',
+          run: () => ['[come in](library.html)']
+        }
+      };
+    </script>
+    <script src="../js/os.js"></script>
     <script src="../js/hover.js"></script>
-    <script src="../js/links.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/misc.js"></script>
+
   </body>
 </html>

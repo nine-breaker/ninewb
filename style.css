@@ -1,17 +1,4 @@
-/* =========================================================
-   THEME VARIABLES
-   ========================================================= */
-:root {
-  --border-color: #444444;
-  --border-width: 1px;
-  --border-style: dotted;
-  --border: var(--border-width) var(--border-style) var(--border-color);
-}
-
-
-/* =========================================================
-   FONTS
-   ========================================================= */
+/* font */
 @font-face {
   font-family: 'hi';
   src: url('fonts/Web437_DOS-V_re_JPN30.woff') format('woff');
@@ -19,10 +6,7 @@
   font-style: normal;
 }
 
-
-/* =========================================================
-   BASE / RESET
-   ========================================================= */
+/* base */
 * {
   box-sizing: border-box;
 }
@@ -32,13 +16,12 @@ body {
   background-color: #000;
   background-image: url(images/supp.png);
   background-position: top left;
-  background-repeat: repeat-y;   /* tile horizontally */
+  background-repeat: repeat-y;   /* tiles down the page */
   background-size: auto 194px;   /* locked height, natural width */
   color: #aaa;
   font-family: 'hi', arial;
   font-size: 11px;
   margin: 0 0 0 30px;
-  text-align: left;
 }
 
 ::selection {
@@ -46,23 +29,9 @@ body {
   color: #ffffff;
 }
 
-
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
+/* text */
 a {
   color: #fff;
-  font-family: 'hi', arial;
-}
-
-p { margin: 0; }
-hr { color: white; margin: 0; }
-
-ul {
-  font-size: 22px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 h1 {
@@ -74,115 +43,46 @@ h1 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-h2 {
-  background: linear-gradient(0deg, #92193e, #4a0b17);
-  border-radius: 0 0 44px;
-  font-size: 12px;
-  margin: 0;
-}
-
-h3 {
-  color: #aaa;
-  margin: 8px 11px;
-  text-shadow: 1px 1px 1px #000;
-}
-
-red   { color: #b45e5e; }
+red    { color: #864568; }
 dagger { font-family: 'Times New Roman'; }
+imood  { font-size: 13px; }
 
-
-/* =========================================================
-   UTILITY CLASSES
-   ========================================================= */
-.u-flex        { display: flex; }
-.u-flex-col    { display: flex; flex-direction: column; }
-.u-flex-row    { display: flex; flex-direction: row; }
-.u-wrap        { flex-wrap: wrap; }
-.u-center      { align-items: center; justify-content: center; }
-.u-gap-xs      { gap: 2px; }
-.u-gap-sm      { gap: 5px; }
-.u-gap-md      { gap: 10px; }
-.u-scroll-y    { overflow-y: auto; }
-.u-scroll-y-scroll { overflow-y: scroll; }
-.u-hidden-x    { overflow-x: hidden; }
-.u-hidden      { overflow: hidden; }
-.u-text-center { text-align: center; }
-.u-text-right  { text-align: right; }
-.u-float-left  { float: left; }
-.u-float-right { float: right; }
-.u-no-underline{ text-decoration: none; }
-.u-no-border   { border: none; }
-
-
-/* =========================================================
-   GENERIC BOX SYSTEM
-   ========================================================= */
-.c-box,
-.c-innerbox {
-  background-color: var(--bgc, transparent);
-  background-image: var(--bgi, none);
-  background-position: var(--bgp, center);
-  background-repeat: var(--bgr, no-repeat);
-  background-size: var(--bgs, cover);
-  border: var(--bd, none);
-  border-bottom: var(--bdb, none);
-  border-radius: var(--rad, 0);
-  box-sizing: border-box;
-  height: var(--h, auto);
-  margin: var(--mg, 0);
-  max-width: var(--maxw, none);
-  min-width: var(--minw, 0);
-  overflow: var(--of, visible);
-  padding: var(--pad, 0);
-  position: var(--pos, static);
-  width: var(--w, auto);
+imood img {
+  max-height: 14px;
 }
 
-.c-innerbox {
-  background-image: none;
+/* utilities */
+.u-flex-col     { display: flex; flex-direction: column; }
+.u-gap-sm       { gap: 5px; }
+.u-no-underline { text-decoration: none; }
+
+/* top bar */
+.tb {
+  width: calc(100% + 30px);
+  margin-left: -30px;
+  height: 18px;
 }
 
-.c-box:has(header) {
-  padding-top: 0 !important;
-}
-
-
-/* =========================================================
-   PAGE FRAME
-   ========================================================= */
+/* page frame */
 .main {
-  background-color: transparent;
-  margin-top: 0;
-  margin-right: auto;
-  position: relative;
-  width: 700px;
+  width: 740px;
   height: 900px;
 }
 
 .columns {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
-  overflow: hidden;
-}
 
-.left {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  max-width: 100px;
-  margin-left: 20px;
+  overflow: hidden;
 }
 
 .mid {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 450px;
-  position: relative; /* anchor for .nine */
-  margin-left: 50px;
+  width: 500px;
+  margin-left:85px;
 }
 
 .right {
@@ -191,13 +91,9 @@ dagger { font-family: 'Times New Roman'; }
   gap: 5px;
   max-width: 100px;
   margin-left: 10px;
-
 }
 
-
-/* =========================================================
-   SIDEBAR (fixed to viewport)
-   ========================================================= */
+/* sidebar */
 .sbl {
   position: fixed;
   left: 0;
@@ -212,203 +108,268 @@ dagger { font-family: 'Times New Roman'; }
 
 nav {
   display: grid;
-  gap: 0px;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
   padding: 12px 0 0 2px;
 }
 
 nav a {
   color: #000;
-  cursor:help;
-}
-
-.r-tracks a, .steam-lastplayed a, .button-grid a {
-  cursor:help;
-}
-
-
-/* =========================================================
-   TOP BANNER
-   ========================================================= */
-.tb {
-  width: calc(100% + 30px);
-  margin-left: -30px;
-  height: 18px;
-  background-position: bottom left, center;
-  background-size: 100% 1px, cover;
-  background-repeat: repeat-x, no-repeat;
-}
-
-
-/* =========================================================
-   MID-COLUMN SPLIT
-   ========================================================= */
-.midleft {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-  flex: 1;
-}
-
-.midleft .c-innerbox {
-  background-position: center;
-  background-size: cover;
-  border-bottom: 1px solid black;
-}
-
-.midleft .c-innerbox p {
-  background: #00000082;
-  font-size: 11px;
-  padding: 10px;
-}
-
-.midright {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-  flex: 0 0 190px;
-}
-
-.midright hr {
-  color: var(--border-color);
-}
-
-
-/* =========================================================
-   RIGHT BANNER (scrolling background)
-   ========================================================= */
-@keyframes scrollingBg {
-  from { background-position: 0 0; }
-  to   { background-position: -1000px 0; }
-}
-
-.rightbanner {
-  animation: scrollingBg 43s infinite linear;
-  background-image: var(--bgi, url('images/puple.jpg'));
-  border: var(--border);
-  height: var(--h, 250px);
-  overflow: hidden;
-  position: relative;
-  width: var(--w, 200px);
-}
-
-.rightbanner-fg {
-  bottom: 0;
-  position: absolute;
-  right: 0;
-  width: 200px;
-  z-index: 1;
-}
-
-.rightbanner-text {
-  font-size: 11px;
-  padding: 5px;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-
-/* =========================================================
-   ALBUM GRID (weekly top albums)
-   ========================================================= */
-.albums-grid {
-  display: grid;
-  gap: 0px;
-  grid-template-columns: repeat(8, 30px);
-}
-
-.album-cover {
-  height: 30px;
-  width: auto;
-  aspect-ratio: 1 / 1;
-  display: block;
-  overflow: hidden;
-  position: relative;
-  cursor:help;
-}
-
-.album-cover img {
-  filter: grayscale(70%) brightness(100%) contrast(105%);
-  height: 100%;
-  object-fit: cover;
-  transition: 0.2s ease;
-  width: 100%;
-}
-
-.album-cover:hover img {
-  filter: grayscale(0) brightness(100%) contrast(100%);
-}
-
-
-
-/* =========================================================
-   GAME RECOMMENDATIONS GRID
-   ========================================================= */
-.gamerecc-grid {
-  display: grid;
-  gap: 0px;
-  grid-template-columns: repeat(8, 20px);
-}
-
-.gamerecc-icon {
-  height: 20px;
-  width: auto;
-  aspect-ratio: 1 / 1;
-  display: block;
-  overflow: hidden;
-  position: relative;
   cursor: help;
 }
 
-.gamerecc-grid img {
-  height: 100%;
+/* top row + about */
+.top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.about {
+  flex: 1;
+  min-width: 0;
+  padding-top: 5px;
+}
+
+.pfp {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 6px;
+  border: 1px dotted #383838;
   object-fit: cover;
-  width: 100%;
 }
 
-#gamerecc-meta {
-  color: #676768;
+.neko {
+  max-height: 45px;
 }
 
-
-
-
-/* =========================================================
-   BUTTON GRID
-   ========================================================= */
-.button-grid {
-  height: 40px;
-  display: grid;
-  grid-template-columns: repeat(2, 20px);
-  justify-content: flex-end;
-  margin-left: auto;
+/* now playing */
+.np {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  color: #fff;
 }
 
-.button-grid img {
+/* tiny album cover */
+.alb {
+  display: block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  object-fit: cover;
+}
+
+/* play icon drawn with borders, so it doesn't need a font glyph. playing = play, .paused = two bars */
+.npstat {
+  flex: none;
+  width: 0;
+  height: 0;
+  margin: 0 1px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid #fff;
+}
+
+.npstat.paused {
+  width: 7px;
+  height: 8px;
+  border: none;
+  background: linear-gradient(90deg, #676768 0 2px, transparent 2px 5px, #676768 5px 7px);
+}
+
+/* clipping window; the JS puts the title inside .np-text-inner */
+.np-text {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.np-text-inner {
+  display: inline-block;
+}
+
+/* the title (underlined like a link) */
+.np-copy {
+  display: inline-block;
+  text-decoration: underline;
+}
+
+/* added by the JS only when the title is too wide, together with a second copy of the title.
+   --np-shift (one title + gap) and --np-dur are set per title */
+.np-text-inner.scrolling {
+  animation: np-scroll var(--np-dur, 8s) linear infinite;
+}
+
+.np-text-inner.scrolling .np-copy {
+  margin-right: 1em; /* gap before the title repeats */
+}
+
+@keyframes np-scroll {
+  0%, 20% { transform: translateX(0); }
+  100%    { transform: translateX(var(--np-shift, 0px)); }
+}
+
+/* pause on hover */
+.np:hover .np-text-inner {
+  animation-play-state: paused;
+}
+
+/* reduced motion: plain ellipsis, the JS doesn't start the scroll */
+@media (prefers-reduced-motion: reduce) {
+  .np-text-inner {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .np-copy {
+    display: inline;
+  }
+}
+
+/* terminal */
+.term {
+  --term-w: 300px;
+  --term-h: 170px;
+  --term-img: url(images/os.png);
+  --term-size: cover;   /* cover | contain | exact size */
+  --term-lines: 3;      /* output lines visible before scrolling */
+  --term-lh: 13px;      /* output line height */
+  flex: none;
+  width: var(--term-w);
+}
+
+.heads {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: var(--term-w);
+  padding: 3px 4px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.term-ls {
+  flex: 1;
+  min-width: 0;
+  line-height: 13px;
+}
+
+.prompt {
+  color: #6d6d6d;
+}
+
+meows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
+
+meow {
+  display: flex;
+  flex: none;
+  gap: 3px;
+}
+
+meow img {
+  display: block;
   height: 20px;
 }
 
-#mh-info,
-#gh-info {
-  width: 50px;
+.term-tips {
+  position: relative;
+  height: 13px;
+  color: #676768;
 }
 
+.term-tips > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  white-space: nowrap;
+}
 
-/* =========================================================
-   MISC
-   ========================================================= */
-.pfp {
-  max-width: 47px;
-  max-height: 47px;
-  border: 2px inset #383838;
+.term-screen {
+  position: relative;
+  border: 1px dotted #383838;
+  border-bottom: none;
+  width: var(--term-w);
+  height: var(--term-h);
+  background: #050505 var(--term-img) center / var(--term-size) no-repeat;
+  cursor: text;
+}
+
+.term-output {
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 5px;
+  max-height: calc(var(--term-lines) * var(--term-lh));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #58183b transparent;
+  line-height: var(--term-lh);
+  color: #c2e0c2;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.term-line {
+  min-height: var(--term-lh);
+  white-space: pre-wrap;
+}
+
+.term-input {
+  display: block;
+  width: var(--term-w);
+  padding: 3px 5px;
+  background: #000;
+  border: 1px dotted #383838;
+  border-top: none;
+  border-radius: 0;
+  color: #c2e0c2;
+  font: inherit;
+}
+
+.term-input::placeholder { color: #52283f; }
+.term-input:focus        { outline: none; background: #0a0f0a; }
+
+/* illustration + hidden diary link */
+.nines {
+  position: relative;
+  height: var(--illus-h, 250px);
 }
 
 .nine {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 320px;
+  left: -15px;
+  width: 340px;
   z-index: 1;
   pointer-events: none;
+}
+
+/* --tail-x / --tail-y = px from the top-left of .nines */
+.diary {
+  --tail-x: 265px;
+  --tail-y: 214px;
+  position: absolute;
+  left: var(--tail-x);
+  top: var(--tail-y);
+}
+
+.diary img {
+  height: 20px;
+}
+
+/* diary hover label, beside the icon */
+#msch-info {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 4px;
+  line-height: 20px;
+  white-space: nowrap;
+  color: #676768;
+  text-decoration: none;
 }

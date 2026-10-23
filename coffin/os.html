@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>terminal demo</title>
+  <style>
+    @font-face {
+      font-family: 'hi';
+      src: url('fonts/Web437_DOS-V_re_JPN30.woff') format('woff');
+    }
+
+    body {
+      background: #000;
+      color: #aaa;
+      font-family: 'hi', monospace;
+      font-size: 11px;
+      margin: 20px;
+    }
+
+    a { color: #fff; }
+
+    /* ---------- terminal widget ----------
+       Tweak size, image and visible lines here, or override any of these
+       per instance with an inline style:
+         <div class="term" style="--term-w:360px; --term-h:200px; --term-img:url(images/mine.png)">
+    */
+    .term {
+      --term-w: 300px;
+      --term-h: 170px;
+      --term-img: url(images/terminal.png);
+      --term-size: cover;       /* cover = fill & crop, contain = fit whole image, or e.g. 300px 170px */
+      --term-lines: 3;          /* how many output lines are visible before scrolling */
+      --term-lh: 13px;          /* line height */
+      width: var(--term-w);
+    }
+
+    .term-prompt { color: #8fb58f; }
+
+    .term-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 10px;
+      margin-bottom: 6px;
+    }
+
+    .term-screen {
+      position: relative;
+      width: var(--term-w);
+      height: var(--term-h);
+      background: #050505 var(--term-img) center / var(--term-size) no-repeat;
+      border: 1px dotted #444;
+      border-bottom: none;
+      cursor: text;
+    }
+
+    /* output is anchored to the bottom-left and grows upward until it hits
+       the line limit, then scrolls */
+    .term-output {
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      bottom: 5px;
+      max-height: calc(var(--term-lines) * var(--term-lh));
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #5a8a5a transparent;
+      line-height: var(--term-lh);
+      color: #c2e0c2;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    .term-line {
+      white-space: pre-wrap;
+      min-height: var(--term-lh);
+    }
+
+    .term-input {
+      display: block;
+      width: var(--term-w);
+      box-sizing: border-box;
+      padding: 3px 5px;
+      background: #000;
+      color: #c2e0c2;
+      border: 1px solid #5a8a5a;
+      border-radius: 0;
+      font: inherit;
+    }
+    .term-input::placeholder { color: #5a8a5a; }
+    .term-input:focus { outline: none; border-color: #9fd49f; }
+    .term-input:focus-visible { outline: 1px solid #9fd49f; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+  <div class="term">
+    <div class="term-prompt">[cat:~]$ ls links/</div>
+    <div class="term-links">
+      <a href="#">blog</a>
+      <a href="#">gh</a>
+      <a href="#">nail</a>
+      <a href="#">mumble</a>
+      <a href="#">tmp</a>
+      <a href="#">webring</a>
+    </div>
+
+    <div class="term-screen" id="term-screen">
+      <div class="term-output" id="term-output" aria-live="polite"></div>
+    </div>
+    <input
+      class="term-input"
+      id="term-input"
+      type="text"
+      placeholder="SPEAK TO ME"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      aria-label="terminal input"
+    >
+  </div>
+
+  <script>
+    /* =========================================================
+       COMMANDS
+       Add a command by adding one entry here — `help` builds its
+       list from this object automatically.
+         desc: shown in `help`
+         run:  returns an array of lines to print (or null to print nothing)
+       ========================================================= */
+    const commands = {
+      help: {
+        desc: 'list commands',
+        run: () => Object.entries(commands).map(([name, c]) => `${name.padEnd(8)} ${c.desc}`)
+      },
+      about: {
+        desc: 'who is this',
+        run: () => ['coolest cat', 'powerfullest vampire', 'thrill seeker', 'thrall seeker', 'techsage', 'lady']
+      },
+      links: {
+        desc: 'list links',
+        run: () => ['blog  gh  nail  mumble  tmp  webring']
+      },
+      date: {
+        desc: 'print the date',
+        run: () => [new Date().toLocaleString()]
+      },
+      clear: {
+        desc: 'clear the screen',
+        run: () => { output.replaceChildren(); return null; }
+      }
+    };
+
+    /* =========================================================
+       TERMINAL LOGIC
+       ========================================================= */
+    const screen = document.getElementById('term-screen');
+    const output = document.getElementById('term-output');
+    const input  = document.getElementById('term-input');
+
+    const IDLE_PLACEHOLDER = 'SPEAK TO ME';
+    const HINT = "type 'help' for a list of commands";
+    const MAX_LINES = 200;   // scrollback limit
+
+    const history = [];
+    let historyIndex = 0;
+
+    // appends lines and keeps the newest one in view
+    function print(lines) {
+      lines.forEach((text) => {
+        const line = document.createElement('div');
+        line.className = 'term-line';
+        line.textContent = text;   // textContent: typed text is never parsed as HTML
+        output.appendChild(line);
+      });
+      while (output.children.length > MAX_LINES) output.firstChild.remove();
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function run(raw) {
+      const [name, ...args] = raw.toLowerCase().split(/\s+/);
+      const cmd = Object.hasOwn(commands, name) ? commands[name] : null;
+
+      print([`[cat:~]$ ${raw}`]);
+
+      const lines = cmd
+        ? cmd.run(args)
+        : [`command not found: ${name}`, HINT];
+
+      if (lines !== null) print(lines);
+    }
+
+    input.addEventListener('focus', () => {
+      input.placeholder = 'help';
+      if (!output.children.length) print([HINT]);
+    });
+
+    input.addEventListener('blur', () => {
+      input.placeholder = IDLE_PLACEHOLDER;
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const raw = input.value.trim();
+        input.value = '';
+        if (!raw) return;
+        history.push(raw);
+        historyIndex = history.length;
+        run(raw);
+      } else if (e.key === 'ArrowUp' && history.length) {
+        e.preventDefault();
+        historyIndex = Math.max(0, historyIndex - 1);
+        input.value = history[historyIndex];
+      } else if (e.key === 'ArrowDown' && history.length) {
+        e.preventDefault();
+        historyIndex = Math.min(history.length, historyIndex + 1);
+        input.value = history[historyIndex] ?? '';
+      }
+    });
+
+    // clicking the image focuses the input (unless the visitor is selecting text)
+    screen.addEventListener('click', () => {
+      if (!window.getSelection().toString()) input.focus();
+    });
+  </script>
+
+</body>
+</html>
