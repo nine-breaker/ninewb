@@ -19,18 +19,20 @@
       desc: '?',
       run: () => ['wouldntu like 2 know?']
     },
-    how_r_u: {
-      desc: 'tsk..',
-      run: () => ['wonder ful...']
-    },
-    date: {
-      desc: 'print the date',
-      run: () => [new Date().toLocaleString()]
+    vid: {
+      desc: 'video of tonight',
+      run: () => ['[technology is gay](https://www.youtube.com/watch?v=ohfVOpBbXs0)']
     },
     clear: {
       desc: 'clear the screen',
       run: () => { output.replaceChildren(); return null; }
     }
+
+    /*    date: {
+      desc: 'print the date',
+      run: () => [new Date().toLocaleString()]
+    },
+    */
   };
 
   // page-only commands: define window.TERM_COMMANDS before this script loads
