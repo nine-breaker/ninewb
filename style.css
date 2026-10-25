@@ -334,25 +334,24 @@ meow img {
 .term-input::placeholder { color: #52283f; }
 .term-input:focus        { outline: none; background: #0a0f0a; }
 
-/* illustration + hidden diary link */
+
 .nines {
   position: relative;
-  height: var(--illus-h, 250px);
+  height: var(--illus-h, 500px);
 }
 
 .nine {
   position: absolute;
-  top: 0;
-  left: -15px;
-  width: 340px;
+  top: -85px;
+  left: 0;
+  width: 450px;
   z-index: 1;
   pointer-events: none;
 }
 
-/* --tail-x / --tail-y = px from the top-left of .nines */
 .diary {
-  --tail-x: 265px;
-  --tail-y: 214px;
+  --tail-x: 200px;
+  --tail-y: 295px;
   position: absolute;
   left: var(--tail-x);
   top: var(--tail-y);
@@ -362,7 +361,7 @@ meow img {
   height: 20px;
 }
 
-/* diary hover label, beside the icon */
+
 #msch-info {
   position: absolute;
   top: 0;
