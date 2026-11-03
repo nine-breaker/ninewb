@@ -11,6 +11,14 @@
   box-sizing: border-box;
 }
 
+html {
+cursor:url(images/cur/04.png),auto;
+}
+
+a:hover{cursor:url(images/cur/05.png),auto;
+}
+
+
 body {
   background-attachment: fixed;
   background-color: #000;
@@ -297,7 +305,6 @@ meow img {
   width: var(--term-w);
   height: var(--term-h);
   background: #050505 var(--term-img) center / var(--term-size) no-repeat;
-  cursor: text;
 }
 
 .term-output {
@@ -371,4 +378,9 @@ meow img {
   white-space: nowrap;
   color: #676768;
   text-decoration: none;
+}
+
+mew {
+  color:#000;
+  text-shadow: 0 0 2px #fff, 0 0  2px #fff, 0 0 10px #fff;
 }
