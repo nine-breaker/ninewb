@@ -6,18 +6,18 @@ const CATEGORY_LABELS = {
 
 // placeholder icon 
 const CATEGORY_ICONS = {
-  web:         "../images/cat/rev.png",
-  games:       "../images/cat/rev.png",
-  tools:       "../images/cat/rev.png"
+  web:         "/images/cat/rev.png",
+  games:       "/images/cat/rev.png",
+  tools:       "/images/cat/rev.png"
 };
 
-const PLACEHOLDER_ICON = "../images/cat/yummy.jpg";
+const PLACEHOLDER_ICON = "/images/cat/yummy.jpg";
 
 let items = [];
 let activeCategory = null;
 
 async function initLibrary() {
-  items = await (await fetch("../data/links.json")).json();
+  items = await (await fetch("/data/links.json")).json();
 
   // total count in the Directory bar
   document.getElementById("directory-count").textContent = items.length;

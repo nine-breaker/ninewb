@@ -1,11 +1,37 @@
+/* variables (other pages' stylesheets may use these) */
+:root {
+  --border-color: #444444;
+  --border-width: 1px;
+  --border-style: dotted;
+  --border: var(--border-width) var(--border-style) var(--border-color);
+}
+
 /* font */
 @font-face {
   font-family: 'hi';
-  src: url('fonts/Web437_DOS-V_re_JPN30.woff') format('woff');
+  src: url('fonts/web437.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'hey';
+  src: url('fonts/Reactor7.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sup';
+  src: url('fonts/redaction50.woff2') format('woff');
+  font-weight:lighter;
+}
+
+@font-face {
+  font-family: 'burger';
+  src: url('fonts/redaction50.woff2') format('woff');
+  font-weight:lighter;
+}
 /* base */
 * {
   box-sizing: border-box;
@@ -27,8 +53,8 @@ body {
   background-repeat: repeat-y;   /* tiles down the page */
   background-size: auto 194px;   /* locked height, natural width */
   color: #aaa;
-  font-family: 'hi', arial;
-  font-size: 11px;
+  font-family: 'hi', arial; /* ff7 'hey' size 14px, og 'hi' size 12px */
+  font-size: 12px;
   margin: 0 0 0 30px;
 }
 
@@ -51,7 +77,7 @@ h1 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-red    { color: #864568; }
+red    { color: #43354e; }
 dagger { font-family: 'Times New Roman'; }
 imood  { font-size: 13px; }
 
@@ -247,6 +273,43 @@ nav a {
   --term-lh: 13px;      /* output line height */
   flex: none;
   width: var(--term-w);
+  --panel-h: 210px;
+  --panel-img: none;
+  position: relative;
+}
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: var(--term-w);
+  height: 320px;
+  margin-top: 6px;
+  border: 1px dotted #202020;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.panel.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease;
+}
+
+/* the page inside the panel fills it */
+.panel iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panel.open {
+    transition: none;
+  }
 }
 
 .heads {
@@ -300,7 +363,7 @@ meow img {
 
 .term-screen {
   position: relative;
-  border: 1px dotted #383838;
+  border: 1px dotted #202020;
   border-bottom: none;
   width: var(--term-w);
   height: var(--term-h);
@@ -315,7 +378,7 @@ meow img {
   max-height: calc(var(--term-lines) * var(--term-lh));
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #58183b transparent;
+  scrollbar-color: #686868 transparent;
   line-height: var(--term-lh);
   color: #c2e0c2;
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
@@ -331,33 +394,33 @@ meow img {
   width: var(--term-w);
   padding: 3px 5px;
   background: #000;
-  border: 1px dotted #383838;
+  border: 1px dotted #202020;
   border-top: none;
   border-radius: 0;
   color: #c2e0c2;
   font: inherit;
 }
 
-.term-input::placeholder { color: #52283f; }
-.term-input:focus        { outline: none; background: #0a0f0a; }
+.term-input::placeholder { color: #43354e; }
+.term-input:focus        { outline: none; background: #f8f8f810; }
 
 
 .nines {
   position: relative;
-  height: var(--illus-h, 500px);
+  height: var(--illus-h, 650px);
 }
 
 .nine {
   position: absolute;
-  top: -85px;
-  left: 0;
-  width: 450px;
-  z-index: 1;
+  top: -80px;
+  left: -90px;
+  width: 390px;
+  z-index: 3;
   pointer-events: none;
 }
 
 .diary {
-  --tail-x: 200px;
+  --tail-x: 160px;
   --tail-y: 295px;
   position: absolute;
   left: var(--tail-x);
@@ -381,6 +444,7 @@ meow img {
 }
 
 mew {
-  color:#000;
-  text-shadow: 0 0 2px #fff, 0 0  2px #fff, 0 0 10px #fff;
+  color:#d8d4d4;
+  font-family: 'sup';
+  text-shadow: 0 0 4px #fff, 0 0  4px #fff, 0 0 10px #fff;
 }

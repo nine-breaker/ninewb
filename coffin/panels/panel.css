@@ -1,0 +1,54 @@
+/* font */
+@font-face {
+  font-family: 'hi';
+  src: url('/fonts/web437.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sup';
+  src: url('/fonts/redaction50.woff2') format('woff');
+  font-weight:lighter;
+}
+
+@font-face {
+  font-family: 'hey';
+  src: url('/fonts/Reactor7.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'burger';
+  src: url('/fonts/redaction50.woff2') format('woff');
+  font-weight:lighter;
+}
+/* base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: none;   
+    cursor:url(/images/cur/04.png),auto;
+}
+
+
+html::-webkit-scrollbar {
+    display: none;                  
+}
+
+    a:hover{cursor:url(/images/cur/05.png),auto;
+}
+
+
+body {
+  background-attachment: fixed;
+  background-color: #000;
+  color: #f3f3f3;
+  font-family: 'hey', arial;
+  font-size: 14px;
+
+}

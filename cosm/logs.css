@@ -1,10 +1,10 @@
 bar-header {
-    background-color: #8a8a8a27;
-    font-family:'hi';
+    background-color: #0303039d;
+    font-family:'hey';
 }
 
 bar-header p {
-    font-size:11px;
+    font-size:14px;
     color:#ffffff;
     padding:1px 2px;
     font-weight:lighter;
@@ -12,7 +12,7 @@ bar-header p {
 
 s-bar {
     background-color:#4a4a4a69;
-    font-size:11px;
+    font-size:14px;
     color:#bbb9b9;
     padding:1px 2px;
     font-weight:lighter;
@@ -24,7 +24,7 @@ gametitle {
 }
 
 .meta {
-    font-size:11px;
+    font-size:14px;
     color:#646363;
     margin-top:-6px;
 }
@@ -34,7 +34,7 @@ gametitle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1px 2px;
+  padding: 2px 5px;
 }
 
 .directory-bar p {
@@ -42,7 +42,7 @@ gametitle {
 }
 
 #directory-count {
-  font-size: 11px;
+  font-size: 14px;
   color: #ffffff;
 }
 
@@ -61,7 +61,6 @@ gametitle {
   width: 20px;
   height: 20px;
   border: 1px solid #000;
-  cursor: help;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +110,7 @@ gametitle {
 .link-entry {
   padding: 2px 4px;
   border-bottom: 1px dotted #222;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .link-entry:last-child {
@@ -121,7 +120,7 @@ gametitle {
 .link-entry a {
   color: #fff;
   text-decoration: none;
-  font-family: 'hi', arial;
+  font-family: 'hey', arial;
 }
 
 .link-entry a:hover {
@@ -129,7 +128,7 @@ gametitle {
 }
 
 .link-entry .link-desc {
-  color: #646363;
+  color: #b1b1b1;
   margin-top: -2px;
 }
 
