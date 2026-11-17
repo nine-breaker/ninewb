@@ -34,7 +34,7 @@ gametitle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 5px;
+  padding: 2px 2px;
 }
 
 .directory-bar p {
@@ -66,6 +66,7 @@ gametitle {
   justify-content: center;
   padding: 0;
 }
+
 
 .category-btn img {
   width: 100%;
@@ -127,8 +128,23 @@ gametitle {
   color: #7e7597;
 }
 
+
 .link-entry .link-desc {
   color: #b1b1b1;
   margin-top: -2px;
 }
 
+html {
+  cursor: url(/images/cur/04.png), auto !important;
+}
+
+a:hover,
+button:hover,
+[data-panel]:hover,
+.category-btn:hover {
+  cursor: url(/images/cur/05.png), pointer !important;
+}
+
+button {
+  cursor: inherit;   
+}

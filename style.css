@@ -38,10 +38,10 @@
 }
 
 html {
-cursor:url(images/cur/04.png),auto;
+cursor:url(/images/cur/04.png),auto;
 }
 
-a:hover{cursor:url(images/cur/05.png),auto;
+a:hover{cursor:url(/images/cur/05.png),auto;
 }
 
 
@@ -266,8 +266,8 @@ nav a {
 /* terminal */
 .term {
   --term-w: 300px;
-  --term-h: 170px;
-  --term-img: url(images/os.png);
+  --term-h: 140px;
+/*  --term-img: url(images/os.png); */
   --term-size: cover;   /* cover | contain | exact size */
   --term-lines: 3;      /* output lines visible before scrolling */
   --term-lh: 13px;      /* output line height */
@@ -277,32 +277,32 @@ nav a {
   --panel-img: none;
   position: relative;
 }
+
 .panel {
   position: absolute;
   top: 100%;
   left: 0;
   width: var(--term-w);
   height: 320px;
-  margin-top: 6px;
+  margin-top: 2px;
   border: 1px dotted #202020;
   z-index: 2;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  opacity: 1;           
+  visibility: visible;  
+  transition: none; 
 }
 
-.panel.open {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.4s ease;
-}
-
-/* the page inside the panel fills it */
 .panel iframe {
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.panel iframe.swap {  
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -317,7 +317,6 @@ nav a {
   align-items: center;
   gap: 6px;
   width: var(--term-w);
-  padding: 3px 4px;
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -412,7 +411,7 @@ meow img {
 
 .nine {
   position: absolute;
-  top: -80px;
+  top: -30px;
   left: -90px;
   width: 390px;
   z-index: 3;
@@ -420,7 +419,7 @@ meow img {
 }
 
 .diary {
-  --tail-x: 160px;
+  --tail-x: 140px;
   --tail-y: 295px;
   position: absolute;
   left: var(--tail-x);
@@ -447,4 +446,11 @@ mew {
   color:#d8d4d4;
   font-family: 'sup';
   text-shadow: 0 0 4px #fff, 0 0  4px #fff, 0 0 10px #fff;
+}
+
+ff7 {
+  background: linear-gradient(180deg, #0000b0, #000080, #000050, #000020);
+  border: 0px solid #a0a0a0;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #ffffff, inset 0 0 0 2px #404040;
 }

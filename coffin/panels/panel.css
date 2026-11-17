@@ -40,7 +40,7 @@ html::-webkit-scrollbar {
     display: none;                  
 }
 
-    a:hover{cursor:url(/images/cur/05.png),auto;
+a:hover{cursor:url(/images/cur/05.png),pointer;
 }
 
 
@@ -52,3 +52,5 @@ body {
   font-size: 14px;
 
 }
+
+img:not(a img):not(.no-open) { cursor: url(/images/cur/05.png), pointer; }

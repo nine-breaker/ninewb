@@ -39,8 +39,9 @@
               <img src="images/icons/nekojiru.jpg" class="pfp">
               <dagger>†</dagger> <mew>ABOUT</mew>
               <br>techsage, vampire
-              <br>thrill seeker, thrall seeker
-              <br>catch me if you can
+              <br>thrill seeker
+              <br> I bite
+
               <br>
               <br>
               <red>!?</red>
@@ -53,6 +54,10 @@
                 <span id="np-play" class="npstat paused" aria-hidden="true"></span>
                 <span id="np-text" class="np-text">loading...</span>
               </a>
+
+
+              <iframe src="/coffin/panels/bubbles.html" style="border:1px dotted #383838;height:70px; width:100%; margin-top:4px;padding:2px;overflow-y:scroll;font-size:11px; font-family:'hey';">
+              </iframe>
             </div>
 
             <img src="images/neko/anekocircle.gif" class="neko">
@@ -61,11 +66,10 @@
             <div class="term">
 
               <div class="heads">
+
                 <div class="term-ls">
                   <div class="prompt">[nine:~]$ ls links/</div>
                   <meows>
-                    <a href="#">mumble</a>
-                    <a href="#">illust</a>
                     <a href="coffin/panels/catalog.html" data-panel data-title="catalog">catalog</a>
                     <a href="#">cats</a>
                     <a href="#">out</a>
@@ -74,11 +78,10 @@
 
                 <!-- icon buttons -->
                 <meow>
-                  <a href="https://www.last.fm/user/chronostat"><img src="images/neko/aneko.gif" data-hover-text="lastfm" class="music-h" alt="last.fm"></a>
-                  <a href="https://steamcommunity.com/id/nine-breaker/"><img src="images/neko/aneko.gif" data-hover-text="my steam" class="game-h" alt="steam"></a>
                   <a href="https://tacnaynpire.atabook.org/"><img src="images/neko/aneko.gif" data-hover-text="guestbook" class="music-h" alt="guestbook"></a>
-                  
-                  <img src="images/neko/aneko.gif" data-hover-text="gamelog" class="game-h" alt="gamelog">
+                  <a href="https://www.last.fm/user/chronostat"><img src="images/neko/aneko.gif" data-hover-text="lastfm" class="music-h" alt="last.fm"></a>
+                  <a href="#"><img src="images/neko/aneko.gif" data-hover-text="-" class="game-h" alt="-"></a>
+                  <img src="images/neko/aneko.gif" data-hover-text="-" class="game-h" alt="-">
                 </meow>
               </div>
 
@@ -102,10 +105,23 @@
                 aria-label="terminal input"
               >
 
-              <!-- panel: a separate page shown in an iframe, hidden until a command opens it -->
+              <!-- panel-->
               <div class="panel" id="panel">
-                <iframe id="panel-frame" title="panel"></iframe>
+                <iframe id="panel-frame" title="panel" src="/coffin/panels/dex.html"></iframe>
               </div>
+
+              <div class="heads" style="padding: 4px 0;">
+                
+                <ff7 style="border:1px solid #383838;height:22px;width:300px;padding:5px;overflow-y:scroll;font-size:11px; font-family:'hey';">So states of unsatisfaction, objects which we see, or which reveal an absence, with the only force of which the individual recovers is susceptive uniqueness. So you might consider as the option that isolated existence of ours is the chance to exceeding what we can do without the power to do it. It’s all very well precise and votively mysteriously which, he, like the stone statue, encroaches in ability.I now present the poet is eager to extract some petrified valintromness of the past, but the images which he left are situated in a life which was open and infinite in Baudelaire’s sense of the word…</ff7>
+                <meow>
+                  <a href="#"><img src="images/vinyl.gif"></a>
+                  <a href="#"><img src="images/vinyl.gif"></a>
+                  <a href="#"><img src="images/vinyl.gif"></a>
+            
+                </meow>
+
+              </div>
+              
 
             </div>
           </div>
@@ -114,7 +130,6 @@
           <div class="nines">
             <img src="images/niyne/meowllala.gif" class="nine" alt="" style="transform: scaleX(-1) rotate(3deg);">
 
-            <!-- hidden diary link -->
             <a href="coffin/diary.html" class="diary" aria-label="diary">
               <img src="images/buttons/cerberus.png" data-hover-text="diary" class="misc-h" alt="">
               <div id="msch-info"></div>
@@ -124,13 +139,12 @@
         </div>
 
         <!-- right column -->
-        <div class="right">
+         <div class="right">
           <br><br><br>
           <div class="u-flex-col u-gap-sm">
             <img src="images/ffxiv.png" alt="">
-            <img src="images/ghosttail.gif" alt="">
             <img src="images/seiki.jpg" alt="">
-            <img src="images/xnext.gif" alt="">
+            <img src="images/banners/ro.gif" alt="">
             <img src="images/ditherkitties.gif" alt="">
             <img src="images/bestgameever.gif">
           </div>
@@ -139,35 +153,12 @@
 
         </div>
 
+
       </div>
     </div>
 
+    <script src="js/gen.js"></script>
     <script src="js/hover.js"></script>
-    <script>
-      (() => {
-        const panel = document.getElementById('panel');
-        const frame = document.getElementById('panel-frame');
-
-        function openPanel(src, title, height) {
-          if (frame.getAttribute('src') !== src) frame.src = src;
-          frame.title = title;
-          if (height) panel.style.setProperty('--panel-h', height);
-          else panel.style.removeProperty('--panel-h');
-          panel.classList.add('open');
-        }
-
-        window.TERM_COMMANDS = {
-          meow: {
-            desc: '?',
-            run: () => { openPanel('coffin/panels/player.html', 'player'); return ['tuning in...']; }
-          },
-          bye: {
-            desc: '!',
-            run: () => { panel.classList.remove('open'); return ['signal lost.']; }
-          }
-        };
-      })();
-    </script>
     <script src="js/os.js"></script>
     <script src="js/script.js"></script>
     <script src="js/min.js"></script>
